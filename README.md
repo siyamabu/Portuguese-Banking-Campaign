@@ -11,7 +11,7 @@ Badge [source](https://shields.io/)
 
 ## Key findings
 
-
+The bank is more likely to get clients to subcribe to its bank term deposit if it is able to increase the duration of the phone calls, furthermore, unknown clients who have not been previously contacted have a higher propensity to subcribe. 
 
 ## Authors
 
@@ -32,10 +32,6 @@ Badge [source](https://shields.io/)
 **Environments Used:**<br />
 * Windows 10 🪟
 
-## Description 
-
-This project consists of  that walks the user through "zeroing out" (wiping) any drives that are connected to the system. The utility allows you to select the target disk and choose the number of passes that are performed. The PowerShell script will configure a diskpart script file based on the user's selections and then launch Diskpart to perform the disk sanitization.
-
 ## Table of Contents
 
   - [Motivation](#motivation)
@@ -49,53 +45,74 @@ This project consists of  that walks the user through "zeroing out" (wiping) any
 
 ## Motivation 
 
+I created this project as a means to gain information to aid my cousin in her marketing efforts to get current and potential customers to subcribe to her curated pet kit service. She intended to administer a marketing campaign centered around phone calls, thus, I wanted to understand how she could be more effective in getting them to subscribe to her service. 
+
 ## Data Source
 
-- [Bank Marketing](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing)
+- [Bank Marketing Campaign](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing)
 
 ## Dataset Description
 
-The data is related with direct marketing campaigns of a Portuguese banking institution. The marketing campaigns were based on phone calls. Often, more than one contact to the same client was required, in order to assess if the product (bank term deposit) would be ('yes') or not ('no') subscribed.The classification goal is to predict if the client will subscribe (yes/no) a term deposit.
+The data is related with direct marketing campaigns of a Portuguese banking institution. The marketing campaigns were based on phone calls. Often, more than one contact to the same client was required, in order to assess if the product (bank term deposit) would be ('yes') or not ('no') subscribed. The classification goal is to predict if the client will subscribe (yes/no) a term deposit.
 
 ## Methods
 
-- Correlation Analysis
-- Logistic Regression
-- Decision Tree
+1. Exploratory Data Analysis
+    * Historgrams of each quantitative feature and an assessment of correlations between pairs of quantitative features. 
+    * Value counts table of each qualitative feature. 
+2. Data Cleaning
+    * An analysis on the extent of missing values for each feature coupled with a missing value imputation using the median. 
+    * Transformation of highly skewed quanitative features using a box cox transformation. 
+    * One-Hot encoding of qualitative features. 
+3. Decision Tree Classifier
+   * First Tree using max_depth=3 and min_samples_leaf=5.
+      * 5 Fold Cross Validation
+   * Second Tree using max_depth=5 and min_samples_leaf=10.
+      * 5 Fold Cross Validation
+   * Third Tree using GridSearchCV to find a more optimal tree.
+      * 5 Fold Cross Validation.
+4. Logistic Regression 
+   * First Model using transformed and one-hot encode features.
+   * Second Model where the transformed features are standardized and polynomial features with degree=2 are added. 
+   * 5 Fold Cross Validation
 
 ## Quick Glance at the Results
 
 Correlations between variables.
 
-![heatmap](pictures/life_correlation_heatmap.png)
+![heatmap](pictures/correlation.png)
 
 A comparison of the best results from each model.
 
 ![graphx](pictures/model_results.png)
 
-The Residuals vs Predicted Strength for the best linear regression model.
+GridSearchCV Results.
 
-![graph1](pictures/residuals_vs_predicted_linear_regression.png) 
+![graph1](pictures/grid_search.png) 
 
-The Observed Strength vs Predicted Strength for the best linear regression model.
+The optimal tree from GridSearchCV.
 
-![graph2](pictures/observed_strength_vs_predicted_strength_linear%20regression.png)
+![graph2](pictures/optimal_tree.png)
 
-The Residuals vs Predicted Strength for the best decision tree regression model. 
+4 highest feature importance scores from the best decision tree model.
 
-![graph3](pictures/residuals_vs_predicted_decision_tree_regression.png)
+![graphyx](pictures/feature.png) 
 
-The Observed Strength vs Predicted Strength for the best decision tree regression model.
+Polynomial coefficient estimates. 
 
-![graph4](pictures/observed_strength_vs_predicted_strength_decision_tree_%20regression.png)
+![graph3](pictures/polynomial%20coefficient%20estimates.png)
 
-5 highest feature importance scores from the best decision tree model.
+Sigmoid Curve 
 
-![graphy](pictures/feature_importance.png) 
+![graph4](pictures/sigmoid_curve.png)
 
 ## Lessons Learned and Recommendations
+- The phone call duration is the most significant feature in predicting if a client will subcribe to the bank term deposit. This makes sense because how long the call lasts for is indicative to if the message was communicated to the client and the deal being closed upon the client understanding the goals of the campaign in the first place. 
+- Unknown clients seem to have a higher propensity to subcribe to the bank term deposits. It may be more effective for the bank to target new clients or implement a limit of three phonecall per client to make their marketing campaign more effective. 
 
 ## Limitations and What Can Be Improved
+-  This project soley focuses on recall as a performance measure  it may be more effective to compare recall with precision or F-1 Score. 
+-  Retraining the model without the least significant features.
 
 ## Explore the Notebook
 
