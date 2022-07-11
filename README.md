@@ -22,7 +22,7 @@ The bank is more likely to get clients to subcribe to its bank term deposit if i
 * Jupyter Notebook :notebook:
 * GitHub :heart_eyes:
 
-**Modules used:**<br />
+**Libraries used:**<br />
 * Pandas
 * Scikit-learn
 * Numpy
