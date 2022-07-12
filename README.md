@@ -116,7 +116,7 @@ Sigmoid Curve
 
 ## Explore the Notebook
 
-To explore the notebook file [here](https://github.com/siyamabu/Life-Expectancy/blob/main/life_expectancy_prediction.ipynb)
+To explore the notebook file [here](https://github.com/siyamabu/Portuguese-Banking-Campaign/blob/main/portuguese_banking_campaign.ipynb)
 
 ## License
 
