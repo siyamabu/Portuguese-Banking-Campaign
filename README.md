@@ -11,7 +11,7 @@ Badge [source](https://shields.io/)
 
 ## Key findings
 
-The bank is more likely to get clients to subcribe to its bank term deposit if it is able to increase the duration of the phone calls, furthermore, unknown clients who have not been previously contacted have a higher propensity to subcribe. 
+The bank is more likely to get clients to subcribe to its bank term deposit if it is able to increase its duration of phone calls with them, furthermore, unknown clients who have not been previously contacted have a higher propensity to subcribe. 
 
 ## Authors
 
